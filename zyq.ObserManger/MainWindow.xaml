@@ -1,0 +1,98 @@
+﻿<Window x:Class="zyq.ObserManger.MainWindow"
+        xmlns:vm="clr-namespace:zyq.ObserManger.ViewModel"
+        xmlns:uc="clr-namespace:UserControlLibrary.Controls;assembly=UserControlLibrary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zyq.ObserManger"
+        mc:Ignorable="d"
+        Height="750" Width="1300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="生产监控系统" FontSize="15" FontFamily="Microsoft Yi Baiti" FontWeight="ExtraLight">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CaptionHeight="50"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush >
+                <GradientStop Color="#0A1E3F" Offset="0"/>
+                <GradientStop Color="#0E1240" Offset="0.5"/>
+                <GradientStop Color="#1A0B2E" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,0,0,1" BorderBrush="#5518aabd">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Resource/Images/018.png" Margin="10,7"></Image>
+                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock Text="生产监控系统" FontSize="18" FontFamily="Microsoft Yi Baiti" FontWeight="Bold" Foreground="#fff" Margin="10,0"></TextBlock>
+                    <TextBlock Text="  v1.0" FontSize="14" FontFamily="Microsoft Yi Baiti" FontWeight="Bold" Foreground="#fff" Margin="0,0"></TextBlock>
+                </StackPanel>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent">
+                        <Button x:Name="btnMinimize" Content="&#xe665;" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"  Click="btnMinimize_Click" Style="{StaticResource OperateBtnStyle}" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                        <Button x:Name="btnMaximize" Content="&#xe653;" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"  Click="btnMaximize_Click" Style="{StaticResource OperateBtnStyle}" WindowChrome.IsHitTestVisibleInChrome="True" FontSize="13"/>
+                        <Button x:Name="btnClose" Content="&#xe609;" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"  Click="btnClose_Click" Style="{StaticResource CloseBtnStyle}" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                    </StackPanel>
+                    <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#5518aabd">
+                        <Border.Background>
+                            <VisualBrush TileMode="FlipXY" Viewport="0,0,7,7" ViewportUnits="Absolute">
+                                <VisualBrush.Visual>
+                                    <Line X1="0" Y1="0" X2="7" Y2="7" Stroke="#5518aabd" StrokeThickness="1"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Border.Background>
+                    </Border>
+                </Grid>
+            </Grid>
+            
+        </Border>
+        <Border Grid.Row="1">
+            <ContentControl Content="{Binding CurrentView}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:MonitorAViewModel}">
+                        <uc:MonitorAUserControl MachineTotal="{Binding MachineTotal}" ProductionCount="{Binding ProductionCount}" DefectCount="{Binding DefectCount}"  /> 
+                    </DataTemplate>
+
+                    
+                </ContentControl.Resources>
+            </ContentControl>
+        </Border>
+        <Border  Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderThickness="0,1,0,0" BorderBrush="#5518aabd" Margin="0,0,10,0" >
+                    <Border.Background>
+                        <VisualBrush TileMode="FlipXY" Viewport="0,0,7,7" ViewportUnits="Absolute">
+                            <VisualBrush.Visual>
+                                <Line X1="0" Y1="10" X2="10" Y2="0" Stroke="#5518aabd" StrokeThickness="1"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.Background>
+                </Border>
+                <TextBlock Grid.Column="1" Text="@ZYQ 2026" FontSize="20"  FontWeight="Bold" Foreground="#fff" Margin="0,0,10,5" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+            
+
+        </Border>
+    </Grid>
+</Window>

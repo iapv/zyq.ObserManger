@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\fonts\Digital Display TFB.ttf" />
+    <None Remove="Resource\fonts\iconfont.ttf" />
+    <None Remove="Resource\Images\018.png" />
+    <None Remove="Resource\Images\272.png" />
+    <None Remove="Resource\Images\bj1.png" />
+    <None Remove="Resource\Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UserControlLibrary\UserControlLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\fonts\Digital Display TFB.ttf" />
+    <Resource Include="Resource\fonts\iconfont.ttf" />
+    <Resource Include="Resource\Images\018.png" />
+    <Resource Include="Resource\Images\272.png" />
+    <Resource Include="Resource\Images\bj1.png" />
+    <Resource Include="Resource\Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.28" />
+    <PackageReference Include="NModbus" Version="3.0.83" />
+    <PackageReference Include="System.IO.Ports" Version="10.0.11" />
+  </ItemGroup>
+
+</Project>

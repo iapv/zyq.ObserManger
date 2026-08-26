@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="UserControlLibrary/UserControlLibrary.csproj" />
+  <Project Path="zyq.ObserManger/zyq.ObserManger.csproj" />
+</Solution>

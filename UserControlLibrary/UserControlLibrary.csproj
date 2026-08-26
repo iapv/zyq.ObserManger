@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\Camera.png" />
+    <None Remove="Resource\largeBox.png" />
+    <None Remove="Resource\liaodou.png" />
+    <None Remove="Resource\RobotArm.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\Camera.png" />
+    <Resource Include="Resource\largeBox.png" />
+    <Resource Include="Resource\liaodou.png" />
+    <Resource Include="Resource\RobotArm.png" />
+  </ItemGroup>
+
+</Project>
